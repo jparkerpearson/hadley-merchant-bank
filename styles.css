@@ -154,7 +154,7 @@ img {
 }
 
 .hero {
-  padding: 130px 0 0;
+  padding: 112px 0 0;
 }
 
 .hero .container {
@@ -167,7 +167,7 @@ img {
 
 .hero-frame {
   border-right: 1px solid rgba(31, 47, 70, 0.24);
-  padding: 0 72px 66px 72px;
+  padding: 0 72px 66px 44px;
 }
 
 .hero-title-row {
@@ -207,13 +207,15 @@ h4 {
   margin: 0;
   line-height: 1.2;
   color: var(--navy);
+  font-weight: 400;
+  letter-spacing: 0.002em;
 }
 
 .hero h1 {
   color: var(--navy);
   font-size: clamp(2rem, 4.2vw, 3.8rem);
   max-width: 980px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.12;
 }
 
@@ -223,7 +225,7 @@ h4 {
 }
 
 .hero p {
-  margin: 42px 0 0 200px;
+  margin: 56px 0 0 136px;
   max-width: 980px;
   font-size: clamp(1rem, 1.25vw, 1.25rem);
   color: #2f3944;
@@ -333,6 +335,7 @@ section {
 .card h3 {
   font-size: 1.55rem;
   margin-bottom: 14px;
+  font-weight: 400;
 }
 
 .card p {
@@ -436,6 +439,7 @@ section {
   color: #f6f2e8;
   font-size: 1.4rem;
   margin-bottom: 8px;
+  font-weight: 400;
 }
 
 .tile p {
@@ -473,6 +477,7 @@ section {
 .process-item h3 {
   margin-bottom: 6px;
   font-size: 1.4rem;
+  font-weight: 400;
 }
 
 .process-item p {
