@@ -154,29 +154,42 @@ img {
 }
 
 .hero {
-  min-height: 78vh;
-  background: url("https://images.unsplash.com/photo-1524758870432-af57e54afa26?auto=format&fit=crop&w=1800&q=80")
-    center/cover no-repeat;
-  color: #f6f2e9;
-  display: flex;
-  align-items: flex-end;
-  padding: 150px 0 90px;
-  position: relative;
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: rgba(23, 35, 54, 0.38);
+  padding: 130px 0 0;
 }
 
 .hero .container {
-  position: relative;
-  z-index: 1;
+  max-width: 1240px;
 }
 
-.hero .container { max-width: 980px; }
+.hero-copy {
+  margin-bottom: 54px;
+}
+
+.hero-frame {
+  border-right: 1px solid rgba(31, 47, 70, 0.24);
+  padding: 0 72px 66px 72px;
+}
+
+.hero-title-row {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  padding-top: 1px;
+}
+
+.hero-line {
+  flex: 1;
+  height: 1px;
+  background: rgba(31, 47, 70, 0.24);
+}
+
+.hero-media {
+  min-height: 56vh;
+  width: 100vw;
+  margin: 0 0 0 calc(50% - 50vw);
+  background: url("https://images.unsplash.com/photo-1524758870432-af57e54afa26?auto=format&fit=crop&w=1800&q=80")
+    center/cover no-repeat;
+}
 
 .eyebrow {
   text-transform: uppercase;
@@ -197,16 +210,24 @@ h4 {
 }
 
 .hero h1 {
-  color: #f9f6ef;
-  font-size: clamp(2.4rem, 5.2vw, 4.3rem);
-  max-width: 860px;
+  color: var(--navy);
+  font-size: clamp(2rem, 4.2vw, 3.8rem);
+  max-width: 980px;
+  font-weight: 500;
+  line-height: 1.12;
+}
+
+.hero h1 em {
+  font-style: italic;
+  font-weight: 400;
 }
 
 .hero p {
-  margin-top: 18px;
-  max-width: 780px;
-  font-size: 1.1rem;
-  color: rgba(248, 244, 236, 0.92);
+  margin: 42px 0 0 200px;
+  max-width: 980px;
+  font-size: clamp(1rem, 1.25vw, 1.25rem);
+  color: #2f3944;
+  line-height: 1.75;
 }
 
 .hero-actions {
@@ -562,7 +583,20 @@ section {
 
   .hero {
     min-height: 72vh;
-    padding-top: 130px;
+    padding-top: 120px;
+  }
+
+  .hero-frame {
+    padding: 0 28px 42px;
+  }
+
+  .hero-title-row {
+    gap: 16px;
+  }
+
+  .hero p {
+    margin: 26px 0 0;
+    font-size: 1.06rem;
   }
 }
 
@@ -578,6 +612,23 @@ section {
 
   section {
     padding: 74px 0;
+  }
+
+  .hero-title-row {
+    display: block;
+  }
+
+  .hero-line {
+    display: none;
+  }
+
+  .hero-frame {
+    padding: 0 0 34px;
+    border-right: 0;
+  }
+
+  .hero-media {
+    min-height: 42vh;
   }
 
   .concern-grid {
