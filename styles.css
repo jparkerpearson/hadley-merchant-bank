@@ -645,3 +645,46 @@ section {
     grid-template-columns: 1fr;
   }
 }
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.profile-card {
+  background: #faf7f1;
+  border: 1px solid rgba(31, 47, 70, 0.16);
+  border-radius: 8px;
+  padding: 24px;
+  box-shadow: var(--shadow);
+}
+
+.profile-photo-wrap {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(31, 47, 70, 0.16);
+  margin-bottom: 18px;
+}
+
+.profile-photo {
+  width: 100%;
+  height: 340px;
+  object-fit: cover;
+}
+
+.profile-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.profile-card p {
+  margin: 0;
+  color: var(--warm-gray);
+}
+
+@media (max-width: 1080px) {
+  .profile-grid {
+    grid-template-columns: 1fr;
+  }
+}
