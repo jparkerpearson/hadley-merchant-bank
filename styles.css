@@ -63,7 +63,7 @@ img {
 }
 
 .header-inner {
-  height: 140px;
+  height: 90px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -73,13 +73,13 @@ img {
 .logo {
   display: inline-flex;
   align-items: center;
-  max-width: min(420px, 32vw);
+  max-width: min(210px, 16vw);
 }
 
 .logo img {
   width: 100%;
   height: auto;
-  max-height: 160px;
+  max-height: 80px;
   object-fit: contain;
 }
 
@@ -552,7 +552,7 @@ section {
   }
 
   .logo {
-    max-width: min(240px, 45vw);
+    max-width: min(150px, 35vw);
   }
 
   .logo img {
