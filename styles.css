@@ -73,13 +73,13 @@ img {
 .logo {
   display: inline-flex;
   align-items: center;
-  max-width: min(320px, 30vw);
+  max-width: min(160px, 20vw);
 }
 
 .logo img {
   width: 100%;
   height: auto;
-  max-height: 50px;
+  max-height: 48px;
   object-fit: contain;
 }
 
@@ -552,11 +552,11 @@ section {
   }
 
   .logo {
-    max-width: min(220px, 50vw);
+    max-width: min(120px, 30vw);
   }
 
   .logo img {
-    max-height: 38px;
+    max-height: 40px;
   }
 
   .menu-btn {
