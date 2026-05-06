@@ -63,7 +63,7 @@ img {
 }
 
 .header-inner {
-  height: 82px;
+  height: 140px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -73,13 +73,13 @@ img {
 .logo {
   display: inline-flex;
   align-items: center;
-  max-width: min(500px, 38vw);
+  max-width: min(420px, 32vw);
 }
 
 .logo img {
   width: 100%;
   height: auto;
-  max-height: 80px;
+  max-height: 160px;
   object-fit: contain;
 }
 
