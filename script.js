@@ -49,6 +49,8 @@ if (buyerIntakeForm) {
   const statusMessage = buyerIntakeForm.querySelector('#buyer-intake-status');
   const emailInput = buyerIntakeForm.querySelector('#email');
   const errorFields = Array.from(buyerIntakeForm.querySelectorAll('[data-error-for]'));
+  const getCheckedValues = (fieldName) =>
+    Array.from(buyerIntakeForm.querySelectorAll(`input[name="${fieldName}"]:checked`)).map((input) => input.value);
 
   const syncSubmitState = () => {
     const hasValidEmail = emailInput.value.trim() && emailInput.checkValidity();
@@ -70,6 +72,7 @@ if (buyerIntakeForm) {
   const setFieldError = (fieldName, message = '') => {
     const field = buyerIntakeForm.elements[fieldName];
     const errorNode = buyerIntakeForm.querySelector(`[data-error-for="${fieldName}"]`);
+    const group = buyerIntakeForm.querySelector(`.checkbox-group input[name="${fieldName}"]`)?.closest('.checkbox-group');
 
     if (field && 'length' in field && !field.tagName) {
       Array.from(field).forEach((input) => input.setAttribute('aria-invalid', message ? 'true' : 'false'));
@@ -77,8 +80,15 @@ if (buyerIntakeForm) {
       field.setAttribute('aria-invalid', message ? 'true' : 'false');
     }
 
+    if (group) {
+      group.setAttribute('aria-invalid', message ? 'true' : 'false');
+    }
+
     if (errorNode) {
       errorNode.textContent = message;
+      if (message) {
+        errorNode.closest('.form-section-collapsible')?.setAttribute('open', '');
+      }
     }
   };
 
@@ -91,6 +101,10 @@ if (buyerIntakeForm) {
       if (field instanceof HTMLElement && 'setAttribute' in field) {
         field.setAttribute('aria-invalid', 'false');
       }
+    });
+
+    buyerIntakeForm.querySelectorAll('.checkbox-group').forEach((group) => {
+      group.setAttribute('aria-invalid', 'false');
     });
   };
 
@@ -108,16 +122,6 @@ if (buyerIntakeForm) {
       setFieldError('email', 'Enter a valid email address.');
       isValid = false;
     }
-
-    ['preferredContactMethod', 'lookingToAcquire', 'agencyTypePreference', 'agencyStructure', 'targetRevenueSize'].forEach(
-      (fieldName) => {
-        const field = buyerIntakeForm.elements[fieldName];
-        if (field && !field.value) {
-          setFieldError(fieldName, 'Please select an option.');
-          isValid = false;
-        }
-      }
-    );
 
     return isValid;
   };
@@ -144,14 +148,15 @@ if (buyerIntakeForm) {
     const email = emailInput.value.trim();
     const phone = buyerIntakeForm.elements.phone.value.trim();
     const preferredContactMethod = buyerIntakeForm.elements.preferredContactMethod.value;
-    const lookingToAcquire = buyerIntakeForm.elements.lookingToAcquire.value;
-    const agencyTypePreference = buyerIntakeForm.elements.agencyTypePreference.value;
-    const agencyStructure = buyerIntakeForm.elements.agencyStructure.value;
+    const lookingToAcquire = getCheckedValues('lookingToAcquire');
+    const agencyTypePreference = getCheckedValues('agencyTypePreference');
+    const agencyStructure = getCheckedValues('agencyStructure');
+    const agencySpecialties = getCheckedValues('agencySpecialties');
     const statesOfInterest = buyerIntakeForm.elements.statesOfInterest.value
       .split(',')
       .map((value) => value.trim())
       .filter(Boolean);
-    const targetRevenueSize = buyerIntakeForm.elements.targetRevenueSize.value;
+    const targetRevenueSize = getCheckedValues('targetRevenueSize');
     const notes = buyerIntakeForm.elements.notes.value.trim();
 
     try {
@@ -170,6 +175,7 @@ if (buyerIntakeForm) {
           lookingToAcquire,
           agencyTypePreference,
           agencyStructure,
+          agencySpecialties,
           statesOfInterest,
           targetRevenueSize,
           notes,

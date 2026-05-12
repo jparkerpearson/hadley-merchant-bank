@@ -75,7 +75,13 @@
               <div class="form-grid">
                 <div class="field">
                   <label for="fullName">Contact / Full name</label>
-                  <input id="fullName" name="fullName" type="text" autocomplete="name" placeholder="Jane Smith" />
+                  <input
+                    id="fullName"
+                    name="fullName"
+                    type="text"
+                    autocomplete="name"
+                    placeholder="Tom Hagen"
+                  />
                   <div class="field-error" data-error-for="fullName"></div>
                 </div>
                 <div class="field">
@@ -85,7 +91,7 @@
                     name="email"
                     type="email"
                     autocomplete="email"
-                    placeholder="jane@agency.com"
+                    placeholder="tom.hagen@agency.com"
                     required
                   />
                   <div class="field-error" data-error-for="email"></div>
@@ -97,7 +103,7 @@
                 </div>
                 <div class="field">
                   <label for="preferredContactMethod">Preferred contact method</label>
-                  <select id="preferredContactMethod" name="preferredContactMethod" required>
+                  <select id="preferredContactMethod" name="preferredContactMethod">
                     <option value="">Select one</option>
                     <option value="Call">Call</option>
                     <option value="Text">Text</option>
@@ -108,63 +114,148 @@
               </div>
             </div>
 
-            <div class="form-section">
-              <div class="form-section-heading">
-                <h2>Acquisition profile</h2>
-                <p>Use the exact preferences that reflect your current search.</p>
+            <details class="form-section form-section-collapsible">
+              <summary class="form-section-toggle">
+                <div class="form-section-heading">
+                  <h2>Acquisition profile</h2>
+                  <p>Use the exact preferences that reflect your current search.</p>
+                </div>
+                <span class="form-section-indicator" aria-hidden="true"></span>
+              </summary>
+              <div class="form-grid form-section-body">
+                <div class="field">
+                  <fieldset class="checkbox-group" aria-describedby="lookingToAcquire-error">
+                    <legend>Looking to acquire</legend>
+                    <label class="checkbox-option">
+                      <input
+                        type="checkbox"
+                        name="lookingToAcquire"
+                        value="Property and Casualty Insurance (P&amp;C)"
+                      />
+                      <span>Property and Casualty Insurance (P&amp;C)</span>
+                    </label>
+                    <label class="checkbox-option">
+                      <input type="checkbox" name="lookingToAcquire" value="Life &amp; Health" />
+                      <span>Life &amp; Health</span>
+                    </label>
+                  </fieldset>
+                  <div class="field-error" id="lookingToAcquire-error" data-error-for="lookingToAcquire"></div>
+                </div>
+                <div class="field">
+                  <fieldset class="checkbox-group" aria-describedby="agencyTypePreference-error">
+                    <legend>Agency type preference</legend>
+                    <label class="checkbox-option">
+                      <input type="checkbox" name="agencyTypePreference" value="Personal Lines" />
+                      <span>Personal Lines</span>
+                    </label>
+                    <label class="checkbox-option">
+                      <input type="checkbox" name="agencyTypePreference" value="Commercial Lines" />
+                      <span>Commercial Lines</span>
+                    </label>
+                  </fieldset>
+                  <div class="field-error" id="agencyTypePreference-error" data-error-for="agencyTypePreference"></div>
+                </div>
+                <div class="field">
+                  <fieldset class="checkbox-group" aria-describedby="agencyStructure-error">
+                    <legend>Agency structure</legend>
+                    <label class="checkbox-option">
+                      <input type="checkbox" name="agencyStructure" value="Independent" />
+                      <span>Independent</span>
+                    </label>
+                    <label class="checkbox-option">
+                      <input type="checkbox" name="agencyStructure" value="Captive" />
+                      <span>Captive</span>
+                    </label>
+                  </fieldset>
+                  <div class="field-error" id="agencyStructure-error" data-error-for="agencyStructure"></div>
+                </div>
+                <div class="field">
+                  <fieldset class="checkbox-group" aria-describedby="targetRevenueSize-error">
+                    <legend>Target revenue size</legend>
+                    <label class="checkbox-option">
+                      <input type="checkbox" name="targetRevenueSize" value="&lt;$250K revenue" />
+                      <span>&lt;$250K revenue</span>
+                    </label>
+                    <label class="checkbox-option">
+                      <input type="checkbox" name="targetRevenueSize" value="$250K-$1M" />
+                      <span>$250K-$1M</span>
+                    </label>
+                    <label class="checkbox-option">
+                      <input type="checkbox" name="targetRevenueSize" value="$1M-$5M" />
+                      <span>$1M-$5M</span>
+                    </label>
+                    <label class="checkbox-option">
+                      <input type="checkbox" name="targetRevenueSize" value="$5M+" />
+                      <span>$5M+</span>
+                    </label>
+                  </fieldset>
+                  <div class="field-error" id="targetRevenueSize-error" data-error-for="targetRevenueSize"></div>
+                </div>
+                <div class="field field-full">
+                  <fieldset class="checkbox-group checkbox-group-columns">
+                    <legend>Agency specialties</legend>
+                    <label class="checkbox-option">
+                      <input type="checkbox" name="agencySpecialties" value="Auto" />
+                      <span>Auto</span>
+                    </label>
+                    <label class="checkbox-option">
+                      <input type="checkbox" name="agencySpecialties" value="Homeowners" />
+                      <span>Homeowners</span>
+                    </label>
+                    <label class="checkbox-option">
+                      <input type="checkbox" name="agencySpecialties" value="Life" />
+                      <span>Life</span>
+                    </label>
+                    <label class="checkbox-option">
+                      <input type="checkbox" name="agencySpecialties" value="Health" />
+                      <span>Health</span>
+                    </label>
+                    <label class="checkbox-option">
+                      <input type="checkbox" name="agencySpecialties" value="Employee Benefits" />
+                      <span>Employee Benefits</span>
+                    </label>
+                    <label class="checkbox-option">
+                      <input type="checkbox" name="agencySpecialties" value="Commercial Property" />
+                      <span>Commercial Property</span>
+                    </label>
+                    <label class="checkbox-option">
+                      <input type="checkbox" name="agencySpecialties" value="General Liability" />
+                      <span>General Liability</span>
+                    </label>
+                    <label class="checkbox-option">
+                      <input type="checkbox" name="agencySpecialties" value="Workers' Compensation" />
+                      <span>Workers' Compensation</span>
+                    </label>
+                    <label class="checkbox-option">
+                      <input type="checkbox" name="agencySpecialties" value="Professional Liability" />
+                      <span>Professional Liability</span>
+                    </label>
+                    <label class="checkbox-option">
+                      <input type="checkbox" name="agencySpecialties" value="Cyber" />
+                      <span>Cyber</span>
+                    </label>
+                    <label class="checkbox-option">
+                      <input type="checkbox" name="agencySpecialties" value="Umbrella / Excess" />
+                      <span>Umbrella / Excess</span>
+                    </label>
+                    <label class="checkbox-option">
+                      <input type="checkbox" name="agencySpecialties" value="Marine" />
+                      <span>Marine</span>
+                    </label>
+                  </fieldset>
+                </div>
               </div>
-              <div class="form-grid">
-                <div class="field">
-                  <label for="lookingToAcquire">Looking to acquire</label>
-                  <select id="lookingToAcquire" name="lookingToAcquire" required>
-                    <option value="">Select one</option>
-                    <option value="Property and Casualty Insurance (P&amp;C)">
-                      Property and Casualty Insurance (P&amp;C)
-                    </option>
-                    <option value="Life &amp; Health">Life &amp; Health</option>
-                    <option value="Both">Both</option>
-                  </select>
-                  <div class="field-error" data-error-for="lookingToAcquire"></div>
-                </div>
-                <div class="field">
-                  <label for="agencyTypePreference">Agency type preference</label>
-                  <select id="agencyTypePreference" name="agencyTypePreference" required>
-                    <option value="">Select one</option>
-                    <option value="Personal Lines">Personal Lines</option>
-                    <option value="Commercial Lines">Commercial Lines</option>
-                    <option value="Both">Both</option>
-                  </select>
-                  <div class="field-error" data-error-for="agencyTypePreference"></div>
-                </div>
-                <div class="field">
-                  <label for="agencyStructure">Agency structure</label>
-                  <select id="agencyStructure" name="agencyStructure" required>
-                    <option value="">Select one</option>
-                    <option value="Independent">Independent</option>
-                    <option value="Captive">Captive</option>
-                    <option value="Open to both">Open to both</option>
-                  </select>
-                  <div class="field-error" data-error-for="agencyStructure"></div>
-                </div>
-                <div class="field">
-                  <label for="targetRevenueSize">Target revenue size</label>
-                  <select id="targetRevenueSize" name="targetRevenueSize" required>
-                    <option value="">Select one</option>
-                    <option value="&lt;$250K revenue">&lt;$250K revenue</option>
-                    <option value="$250K-$1M">$250K-$1M</option>
-                    <option value="$1M-$5M">$1M-$5M</option>
-                    <option value="$5M+">$5M+</option>
-                  </select>
-                  <div class="field-error" data-error-for="targetRevenueSize"></div>
-                </div>
-              </div>
-            </div>
+            </details>
 
-            <div class="form-section">
-              <div class="form-section-heading">
-                <h2>Geography and notes</h2>
-                <p>Share the geographies you care about and any context that matters.</p>
-              </div>
+            <details class="form-section form-section-collapsible">
+              <summary class="form-section-toggle">
+                <div class="form-section-heading">
+                  <h2>Geography and notes</h2>
+                  <p>Share the geographies you care about and any context that matters.</p>
+                </div>
+                <span class="form-section-indicator" aria-hidden="true"></span>
+              </summary>
+              <div class="form-section-body">
               <div class="field field-full">
                 <label for="statesOfInterest">Geographies you are interested in</label>
                 <input
@@ -184,7 +275,8 @@
                 ></textarea>
                 <div class="field-error" data-error-for="notes"></div>
               </div>
-            </div>
+              </div>
+            </details>
 
             <div class="form-status" id="buyer-intake-status" hidden></div>
 
