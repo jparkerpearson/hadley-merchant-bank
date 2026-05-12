@@ -162,7 +162,7 @@ if (buyerIntakeForm) {
     try {
       clearStatus();
 
-      const response = await fetch('https://api.glassriverinsure.com/external/buyer-intake', {
+      const response = await fetch('https://api.glassriverinsure.com/buyer-intake', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
