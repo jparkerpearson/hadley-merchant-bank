@@ -536,7 +536,7 @@ section {
 }
 
 .intake-shell {
-  padding: 18px 0 40px;
+  padding: 14px 0 28px;
   background:
     radial-gradient(circle at top left, rgba(165, 136, 87, 0.08), transparent 34%),
     linear-gradient(180deg, #faf7f1 0%, #fdfcf9 32%, #fdfcf9 100%);
@@ -544,33 +544,34 @@ section {
 
 .intake-hero {
   max-width: 900px;
-  margin: 0 auto 20px;
+  margin: 0 auto 14px;
   margin-left: 10px;
   text-align: left;
-  padding: 4px 0 0;
+  padding: 2px 0 0;
 }
 
 .intake-hero h1 {
-  font-size: clamp(1.7rem, 2.8vw, 2.5rem);
-  margin-bottom: 2px;
+  font-size: clamp(1.35rem, 2.2vw, 1.95rem);
+  margin-bottom: 3px;
+  letter-spacing: 0;
 }
 
 .intake-hero p {
   margin: 0;
   max-width: 34rem;
   color: var(--warm-gray);
-  font-size: 0.92rem;
-  line-height: 1.45;
+  font-size: 0.84rem;
+  line-height: 1.4;
 }
 
 .intake-panel {
   background: rgba(255, 255, 255, 0.86);
   border: 1px solid rgba(31, 47, 70, 0.12);
-  border-radius: 18px;
-  padding: 40px;
+  border-radius: 16px;
+  padding: 28px;
   max-width: 900px;
   margin: 0 auto;
-  box-shadow: 0 18px 40px rgba(22, 35, 56, 0.07);
+  box-shadow: 0 14px 32px rgba(22, 35, 56, 0.05);
   backdrop-filter: blur(10px);
 }
 
@@ -581,43 +582,45 @@ section {
 
 .intake-form {
   display: grid;
-  gap: 28px;
+  gap: 20px;
 }
 
 .form-section {
   display: grid;
-  gap: 16px;
+  gap: 12px;
 }
 
 .form-section + .form-section {
-  padding-top: 28px;
+  padding-top: 18px;
   border-top: 1px solid rgba(31, 47, 70, 0.08);
 }
 
 .form-section-heading {
   display: grid;
-  gap: 6px;
+  gap: 4px;
 }
 
 .form-section-heading h2 {
-  font-size: 1.45rem;
+  font-size: 1.05rem;
+  line-height: 1.2;
 }
 
 .form-section-heading p {
   margin: 0;
   color: var(--warm-gray);
-  font-size: 0.95rem;
+  font-size: 0.82rem;
+  line-height: 1.35;
 }
 
 .form-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
+  gap: 14px;
 }
 
 .field {
   display: grid;
-  gap: 8px;
+  gap: 6px;
 }
 
 .field-full {
@@ -628,8 +631,9 @@ section {
 .field legend {
   padding: 0;
   color: var(--navy);
-  font-size: 0.95rem;
+  font-size: 0.83rem;
   font-weight: 500;
+  line-height: 1.25;
 }
 
 .field legend {
@@ -646,17 +650,19 @@ section {
 .field textarea {
   width: 100%;
   border: 1px solid rgba(31, 47, 70, 0.16);
-  border-radius: 12px;
+  border-radius: 10px;
   background: #fffdfa;
-  padding: 14px 16px;
+  padding: 11px 13px;
   color: var(--charcoal);
   font: inherit;
+  font-size: 0.9rem;
+  line-height: 1.35;
   transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
   appearance: none;
 }
 
 .field textarea {
-  min-height: 150px;
+  min-height: 110px;
   resize: vertical;
 }
 
@@ -678,10 +684,10 @@ section {
   background-image:
     linear-gradient(45deg, transparent 50%, rgba(31, 47, 70, 0.78) 50%),
     linear-gradient(135deg, rgba(31, 47, 70, 0.78) 50%, transparent 50%);
-  background-position: calc(100% - 22px) calc(50% - 2px), calc(100% - 16px) calc(50% - 2px);
+  background-position: calc(100% - 18px) calc(50% - 2px), calc(100% - 13px) calc(50% - 2px);
   background-size: 6px 6px, 6px 6px;
   background-repeat: no-repeat;
-  padding-right: 42px;
+  padding-right: 34px;
 }
 
 .field-hint {
@@ -691,8 +697,8 @@ section {
 
 .field-error {
   color: #9f3e2d;
-  font-size: 0.85rem;
-  min-height: 1.2em;
+  font-size: 0.76rem;
+  min-height: 1em;
 }
 
 .field input[aria-invalid="true"],
@@ -703,9 +709,10 @@ section {
 }
 
 .form-status {
-  border-radius: 12px;
-  padding: 14px 16px;
-  font-size: 0.95rem;
+  border-radius: 10px;
+  padding: 11px 13px;
+  font-size: 0.84rem;
+  line-height: 1.4;
 }
 
 .form-status[hidden] {
@@ -728,8 +735,8 @@ section {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 18px;
-  padding-top: 6px;
+  gap: 12px;
+  padding-top: 2px;
 }
 
 .submit-row p {
@@ -859,7 +866,7 @@ section {
   }
 
   .intake-panel {
-    padding: 32px 24px;
+    padding: 24px 18px;
     border-radius: 14px;
   }
 
