@@ -535,6 +535,214 @@ section {
   gap: 24px;
 }
 
+.intake-shell {
+  padding: 18px 0 40px;
+  background:
+    radial-gradient(circle at top left, rgba(165, 136, 87, 0.08), transparent 34%),
+    linear-gradient(180deg, #faf7f1 0%, #fdfcf9 32%, #fdfcf9 100%);
+}
+
+.intake-hero {
+  max-width: 900px;
+  margin: 0 auto 20px;
+  margin-left: 10px;
+  text-align: left;
+  padding: 4px 0 0;
+}
+
+.intake-hero h1 {
+  font-size: clamp(1.7rem, 2.8vw, 2.5rem);
+  margin-bottom: 2px;
+}
+
+.intake-hero p {
+  margin: 0;
+  max-width: 34rem;
+  color: var(--warm-gray);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
+
+.intake-panel {
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(31, 47, 70, 0.12);
+  border-radius: 18px;
+  padding: 40px;
+  max-width: 900px;
+  margin: 0 auto;
+  box-shadow: 0 18px 40px rgba(22, 35, 56, 0.07);
+  backdrop-filter: blur(10px);
+}
+
+.intake-hero,
+.intake-panel {
+  border-top: 0;
+}
+
+.intake-form {
+  display: grid;
+  gap: 28px;
+}
+
+.form-section {
+  display: grid;
+  gap: 16px;
+}
+
+.form-section + .form-section {
+  padding-top: 28px;
+  border-top: 1px solid rgba(31, 47, 70, 0.08);
+}
+
+.form-section-heading {
+  display: grid;
+  gap: 6px;
+}
+
+.form-section-heading h2 {
+  font-size: 1.45rem;
+}
+
+.form-section-heading p {
+  margin: 0;
+  color: var(--warm-gray);
+  font-size: 0.95rem;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.field {
+  display: grid;
+  gap: 8px;
+}
+
+.field-full {
+  grid-column: 1 / -1;
+}
+
+.field label,
+.field legend {
+  padding: 0;
+  color: var(--navy);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.field legend {
+  margin-bottom: 2px;
+}
+
+.fieldset {
+  border: 0;
+  margin: 0;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  border: 1px solid rgba(31, 47, 70, 0.16);
+  border-radius: 12px;
+  background: #fffdfa;
+  padding: 14px 16px;
+  color: var(--charcoal);
+  font: inherit;
+  transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease;
+  appearance: none;
+}
+
+.field textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: rgba(111, 107, 100, 0.8);
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: rgba(31, 47, 70, 0.42);
+  box-shadow: 0 0 0 4px rgba(31, 47, 70, 0.08);
+  background: #fff;
+}
+
+.field select {
+  background-image:
+    linear-gradient(45deg, transparent 50%, rgba(31, 47, 70, 0.78) 50%),
+    linear-gradient(135deg, rgba(31, 47, 70, 0.78) 50%, transparent 50%);
+  background-position: calc(100% - 22px) calc(50% - 2px), calc(100% - 16px) calc(50% - 2px);
+  background-size: 6px 6px, 6px 6px;
+  background-repeat: no-repeat;
+  padding-right: 42px;
+}
+
+.field-hint {
+  color: var(--warm-gray);
+  font-size: 0.85rem;
+}
+
+.field-error {
+  color: #9f3e2d;
+  font-size: 0.85rem;
+  min-height: 1.2em;
+}
+
+.field input[aria-invalid="true"],
+.field select[aria-invalid="true"],
+.field textarea[aria-invalid="true"] {
+  border-color: rgba(159, 62, 45, 0.55);
+  box-shadow: 0 0 0 4px rgba(159, 62, 45, 0.08);
+}
+
+.form-status {
+  border-radius: 12px;
+  padding: 14px 16px;
+  font-size: 0.95rem;
+}
+
+.form-status[hidden] {
+  display: none;
+}
+
+.form-status-success {
+  background: rgba(56, 122, 86, 0.1);
+  border: 1px solid rgba(56, 122, 86, 0.2);
+  color: #23563b;
+}
+
+.form-status-error {
+  background: rgba(159, 62, 45, 0.08);
+  border: 1px solid rgba(159, 62, 45, 0.15);
+  color: #8b3526;
+}
+
+.submit-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding-top: 6px;
+}
+
+.submit-row p {
+  margin: 0;
+  color: var(--warm-gray);
+  font-size: 0.9rem;
+}
+
+.btn[disabled] {
+  opacity: 0.72;
+  cursor: wait;
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(16px);
@@ -587,7 +795,8 @@ section {
   .content-grid,
   .compare,
   .situations,
-  .two-col {
+  .two-col,
+  .form-grid {
     grid-template-columns: 1fr;
   }
 
@@ -643,6 +852,25 @@ section {
 
   .concern-grid {
     grid-template-columns: 1fr;
+  }
+
+  .intake-shell {
+    padding: 12px 0 28px;
+  }
+
+  .intake-panel {
+    padding: 32px 24px;
+    border-radius: 14px;
+  }
+
+  .submit-row {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .submit-row .btn {
+    width: auto;
+    align-self: flex-start;
   }
 }
 
