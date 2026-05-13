@@ -236,3 +236,162 @@ if (buyerIntakeForm) {
 
   syncSubmitState();
 }
+
+const sellerValuationForm = document.querySelector('#seller-valuation-form');
+
+if (sellerValuationForm) {
+  const submitButton = sellerValuationForm.querySelector('#seller-valuation-submit');
+  const statusMessage = sellerValuationForm.querySelector('#seller-valuation-status');
+  const agencyType = sellerValuationForm.querySelector('#agency-type');
+  const bookMixField = sellerValuationForm.querySelector('#book-mix-field');
+  const bookMixInput = sellerValuationForm.querySelector('#book-mix');
+  const rangeInputs = Array.from(sellerValuationForm.querySelectorAll('input[type="range"][data-display-target]'));
+
+  const setStatus = (message, type) => {
+    statusMessage.textContent = message;
+    statusMessage.className = `form-status form-status-${type}`;
+    statusMessage.hidden = false;
+  };
+
+  const clearStatus = () => {
+    statusMessage.hidden = true;
+    statusMessage.textContent = '';
+    statusMessage.className = 'form-status';
+  };
+
+  const formatCurrency = (value) => {
+    const amount = Number(value);
+
+    if (amount >= 1000000) {
+      return `$${(amount / 1000000).toFixed(2)}M`;
+    }
+
+    return `$${Math.round(amount / 1000)}k`;
+  };
+
+  const formatBookMix = (value) => {
+    const personal = 100 - Number(value);
+    const commercial = Number(value);
+    return `${personal}% personal / ${commercial}% commercial`;
+  };
+
+  const getScaledRangeValue = (input) => {
+    if (input.dataset.scale !== 'log') {
+      return Number(input.value);
+    }
+
+    const sliderMin = Number(input.min);
+    const sliderMax = Number(input.max);
+    const rangeMin = Number(input.dataset.minValue);
+    const rangeMax = Number(input.dataset.maxValue);
+    const normalizedValue = (Number(input.value) - sliderMin) / (sliderMax - sliderMin);
+    const scaledValue = rangeMin * (rangeMax / rangeMin) ** normalizedValue;
+
+    return Math.round(scaledValue / 1000) * 1000;
+  };
+
+  const syncRangeDisplay = (input) => {
+    const targetId = input.dataset.displayTarget;
+    const target = targetId ? sellerValuationForm.querySelector(`#${targetId}`) : null;
+
+    if (!target) {
+      return;
+    }
+
+    if (input.name === 'annualCommissionRevenue') {
+      const scaledValue = getScaledRangeValue(input);
+      target.textContent = formatCurrency(scaledValue);
+      input.setAttribute('aria-valuetext', formatCurrency(scaledValue));
+      return;
+    }
+
+    if (input.name === 'bookMix') {
+      target.textContent = formatBookMix(input.value);
+    }
+  };
+
+  const syncBookMixVisibility = () => {
+    const showBookMix = agencyType.value === 'pc';
+    bookMixField.classList.toggle('is-hidden', !showBookMix);
+    bookMixInput.disabled = !showBookMix;
+  };
+
+  rangeInputs.forEach((input) => {
+    syncRangeDisplay(input);
+    input.addEventListener('input', () => syncRangeDisplay(input));
+    input.addEventListener('change', () => syncRangeDisplay(input));
+  });
+
+  agencyType.addEventListener('change', syncBookMixVisibility);
+  syncBookMixVisibility();
+
+  sellerValuationForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    clearStatus();
+
+    if (!sellerValuationForm.checkValidity()) {
+      sellerValuationForm.reportValidity();
+      setStatus('Please complete the required fields before requesting a valuation.', 'error');
+      return;
+    }
+
+    const originalLabel = submitButton.textContent;
+    submitButton.disabled = true;
+    submitButton.textContent = 'Submitting...';
+
+    const annualCommissionRevenue = getScaledRangeValue(
+      sellerValuationForm.elements.annualCommissionRevenue
+    );
+    const bookMixValue = Number(bookMixInput.value);
+    const payload = {
+      firstName: sellerValuationForm.elements.firstName.value.trim(),
+      lastName: sellerValuationForm.elements.lastName.value.trim(),
+      email: sellerValuationForm.elements.email.value.trim(),
+      agencyType: sellerValuationForm.elements.agencyType.value,
+      agencyState: sellerValuationForm.elements.agencyState.value,
+      annualCommissionRevenue,
+      bookMix:
+        sellerValuationForm.elements.agencyType.value === 'pc'
+          ? {
+              personalPercentage: 100 - bookMixValue,
+              commercialPercentage: bookMixValue,
+            }
+          : null,
+      accountRetention: sellerValuationForm.elements.accountRetention.value,
+    };
+
+    fetch('https://api.glassriverinsure.com/seller-valuation', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload),
+    })
+      .then(async (response) => {
+        const data = await response.json().catch(() => null);
+
+        if (!response.ok) {
+          throw new Error(data?.error || 'Submission failed');
+        }
+
+        setStatus('Thank you. Your valuation request was submitted successfully.', 'success');
+      })
+      .catch((error) => {
+        const message = error instanceof Error ? error.message : 'Submission failed';
+        const friendlyMessage =
+          message && message !== 'Submission failed'
+            ? `We could not submit the form: ${message}. Please review the details and try again.`
+            : 'We could not submit the form right now. Please try again in a moment.';
+        setStatus(friendlyMessage, 'error');
+      })
+      .finally(() => {
+        submitButton.disabled = false;
+        submitButton.textContent = originalLabel;
+      });
+  });
+
+  sellerValuationForm.querySelectorAll('input, select').forEach((field) => {
+    field.addEventListener('input', clearStatus);
+    field.addEventListener('change', clearStatus);
+  });
+}
