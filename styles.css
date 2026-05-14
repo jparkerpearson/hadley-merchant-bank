@@ -514,6 +514,21 @@ section {
   font-size: 0.9rem;
 }
 
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: var(--navy);
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
 .page-hero {
   padding: 110px 0 70px;
   background: var(--bg-ivory);
@@ -1014,6 +1029,66 @@ section {
   transform: translateY(0);
 }
 
+.legal-shell {
+  padding: 54px 0 96px;
+}
+
+.legal-layout {
+  max-width: 860px;
+}
+
+.legal-intro {
+  margin: 0 0 38px;
+  color: #324154;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.legal-section {
+  padding: 0;
+  border: 0;
+}
+
+.legal-section + .legal-section {
+  margin-top: 34px;
+  padding-top: 34px;
+  border-top: 1px solid rgba(31, 47, 70, 0.1);
+}
+
+.legal-section h2 {
+  font-size: clamp(1.3rem, 2.4vw, 1.75rem);
+  margin-bottom: 14px;
+}
+
+.legal-section p {
+  margin: 0 0 14px;
+  color: #324154;
+  line-height: 1.8;
+}
+
+.legal-section ul {
+  margin: 0;
+  padding-left: 22px;
+  color: #324154;
+}
+
+.legal-section li + li {
+  margin-top: 10px;
+}
+
+.legal-contact {
+  display: grid;
+  gap: 8px;
+}
+
+.legal-contact a {
+  color: var(--navy);
+}
+
+.legal-contact a:hover {
+  text-decoration: underline;
+}
+
 @media (max-width: 1080px) {
   .nav-links {
     display: none;
@@ -1088,6 +1163,16 @@ section {
 @media (max-width: 720px) {
   .header-actions .btn {
     display: none;
+  }
+
+  .footer-inner,
+  .footer-links {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .legal-shell {
+    padding: 42px 0 74px;
   }
 
   .hero p,
