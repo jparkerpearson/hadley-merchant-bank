@@ -48,6 +48,8 @@ if (buyerIntakeForm) {
   const submitButton = buyerIntakeForm.querySelector('#buyer-intake-submit');
   const statusMessage = buyerIntakeForm.querySelector('#buyer-intake-status');
   const emailInput = buyerIntakeForm.querySelector('#email');
+  const preferredContactMethodInput = buyerIntakeForm.querySelector('#preferredContactMethod');
+  const textComplianceCopy = buyerIntakeForm.querySelector('#buyer-intake-text-compliance');
   const errorFields = Array.from(buyerIntakeForm.querySelectorAll('[data-error-for]'));
   const getCheckedValues = (fieldName) =>
     Array.from(buyerIntakeForm.querySelectorAll(`input[name="${fieldName}"]:checked`)).map((input) => input.value);
@@ -55,6 +57,14 @@ if (buyerIntakeForm) {
   const syncSubmitState = () => {
     const hasValidEmail = emailInput.value.trim() && emailInput.checkValidity();
     submitButton.disabled = !hasValidEmail;
+  };
+
+  const syncTextComplianceCopy = () => {
+    if (!textComplianceCopy || !preferredContactMethodInput) {
+      return;
+    }
+
+    textComplianceCopy.hidden = preferredContactMethodInput.value !== 'Text';
   };
 
   const setStatus = (message, type) => {
@@ -130,6 +140,7 @@ if (buyerIntakeForm) {
     buyerIntakeForm.reset();
     clearErrors();
     syncSubmitState();
+    syncTextComplianceCopy();
   };
 
   buyerIntakeForm.addEventListener('submit', async (event) => {
@@ -221,6 +232,9 @@ if (buyerIntakeForm) {
       if (field.name !== 'email') {
         syncSubmitState();
       }
+      if (field.name === 'preferredContactMethod') {
+        syncTextComplianceCopy();
+      }
     });
 
     field.addEventListener('change', () => {
@@ -231,10 +245,14 @@ if (buyerIntakeForm) {
       if (field.name !== 'email') {
         syncSubmitState();
       }
+      if (field.name === 'preferredContactMethod') {
+        syncTextComplianceCopy();
+      }
     });
   });
 
   syncSubmitState();
+  syncTextComplianceCopy();
 }
 
 const sellerValuationForm = document.querySelector('#seller-valuation-form');

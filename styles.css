@@ -1003,6 +1003,28 @@ section {
   font-size: 0.9rem;
 }
 
+.form-compliance-copy {
+  margin: 12px 0 0;
+  max-width: 760px;
+  color: var(--warm-gray);
+  font-size: 0.82rem;
+  line-height: 1.6;
+}
+
+.form-compliance-copy[hidden] {
+  display: none;
+}
+
+.form-compliance-copy a {
+  color: var(--navy);
+  text-decoration: underline;
+  text-underline-offset: 0.12em;
+}
+
+.form-compliance-copy a:hover {
+  color: var(--navy-dark);
+}
+
 .btn[disabled] {
   opacity: 0.72;
   cursor: wait;
