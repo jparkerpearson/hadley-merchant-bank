@@ -97,10 +97,76 @@ img {
   transition: color 180ms ease, border-color 180ms ease;
 }
 
+.nav-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.nav-dropdown-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  border-bottom: 1px solid transparent;
+  color: inherit;
+  transition: color 180ms ease, border-color 180ms ease;
+}
+
+.nav-dropdown-trigger::after {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: rotate(45deg) translateY(-1px);
+  transition: transform 180ms ease;
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 14px);
+  left: 50%;
+  min-width: 220px;
+  display: grid;
+  gap: 4px;
+  padding: 14px 16px;
+  background: rgba(253, 252, 249, 0.98);
+  border: 1px solid rgba(31, 47, 70, 0.12);
+  box-shadow: var(--shadow);
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, 8px);
+  transition: opacity 180ms ease, transform 180ms ease, visibility 180ms ease;
+}
+
+.nav-dropdown-menu a {
+  padding: 8px 0;
+  white-space: nowrap;
+}
+
 .nav-links a:hover,
 .nav-links a[aria-current="page"] {
   color: var(--navy);
   border-bottom-color: rgba(31, 47, 70, 0.3);
+}
+
+.nav-dropdown:hover .nav-dropdown-trigger,
+.nav-dropdown:focus-within .nav-dropdown-trigger {
+  color: var(--navy);
+  border-bottom-color: rgba(31, 47, 70, 0.3);
+}
+
+.nav-dropdown:hover .nav-dropdown-trigger::after,
+.nav-dropdown:focus-within .nav-dropdown-trigger::after {
+  transform: rotate(225deg) translateY(-1px);
+}
+
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown:focus-within .nav-dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
 }
 
 .header-actions {
@@ -1114,6 +1180,28 @@ section {
 @media (max-width: 1080px) {
   .nav-links {
     display: none;
+  }
+
+  .nav-dropdown {
+    width: 100%;
+    display: grid;
+    gap: 6px;
+  }
+
+  .nav-dropdown-trigger {
+    width: fit-content;
+  }
+
+  .nav-dropdown-menu {
+    position: static;
+    min-width: 0;
+    padding: 0 0 0 16px;
+    border: 0;
+    box-shadow: none;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    gap: 6px;
   }
 
   .logo {
