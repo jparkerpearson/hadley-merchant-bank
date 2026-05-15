@@ -577,8 +577,9 @@ section {
   padding: 44px 0 30px;
   color: #4f5a69;
   display: grid;
-  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1.85fr);
-  gap: 36px;
+  grid-template-columns: minmax(0, 1.45fr) auto;
+  align-items: start;
+  gap: 48px;
   font-size: 0.95rem;
 }
 
@@ -602,15 +603,17 @@ section {
 }
 
 .footer-meta {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 28px 40px;
 }
 
 .footer-block {
   display: grid;
   align-content: start;
   gap: 8px;
+  min-width: 160px;
 }
 
 .footer-block p {
@@ -627,6 +630,7 @@ section {
 }
 
 .footer-link {
+  display: block;
   color: var(--navy);
 }
 
@@ -637,6 +641,7 @@ section {
 .footer-links {
   display: grid;
   gap: 8px;
+  justify-items: start;
 }
 
 .footer-links a {
