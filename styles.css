@@ -108,8 +108,12 @@ img {
   align-items: center;
   gap: 8px;
   padding: 8px 0;
+  border: 0;
   border-bottom: 1px solid transparent;
+  background: transparent;
   color: inherit;
+  font: inherit;
+  cursor: pointer;
   transition: color 180ms ease, border-color 180ms ease;
 }
 
@@ -1274,8 +1278,7 @@ section {
     padding: 0 0 0 16px;
     border: 0;
     box-shadow: none;
-    opacity: 1;
-    visibility: visible;
+    display: none;
     transform: none;
     gap: 10px;
     background: transparent;
@@ -1285,6 +1288,14 @@ section {
     padding: 0;
     border-bottom: 0;
     color: #44546a;
+  }
+
+  .nav-dropdown.nav-dropdown-open .nav-dropdown-menu {
+    display: grid;
+  }
+
+  .nav-dropdown.nav-dropdown-open .nav-dropdown-trigger::after {
+    transform: rotate(225deg) translateY(-1px);
   }
 
   .logo {

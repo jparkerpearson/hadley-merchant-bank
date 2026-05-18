@@ -22,12 +22,37 @@ if (header) {
 }
 
 const menuBtn = document.querySelector('.menu-btn');
+const navDropdowns = Array.from(document.querySelectorAll('.nav-dropdown'));
 if (menuBtn && header) {
   menuBtn.addEventListener('click', () => {
     const open = header.classList.toggle('mobile-open');
     menuBtn.setAttribute('aria-expanded', String(open));
+
+    if (!open) {
+      navDropdowns.forEach((dropdown) => {
+        dropdown.classList.remove('nav-dropdown-open');
+        dropdown.querySelector('.nav-dropdown-trigger')?.setAttribute('aria-expanded', 'false');
+      });
+    }
   });
 }
+
+navDropdowns.forEach((dropdown) => {
+  const trigger = dropdown.querySelector('.nav-dropdown-trigger');
+
+  if (!trigger) {
+    return;
+  }
+
+  trigger.addEventListener('click', () => {
+    if (window.innerWidth > 1080) {
+      return;
+    }
+
+    const open = dropdown.classList.toggle('nav-dropdown-open');
+    trigger.setAttribute('aria-expanded', String(open));
+  });
+});
 
 const observer = new IntersectionObserver(
   (entries) => {
