@@ -1279,6 +1279,8 @@ section {
     border: 0;
     box-shadow: none;
     display: none;
+    opacity: 1;
+    visibility: visible;
     transform: none;
     gap: 10px;
     background: transparent;
