@@ -44,11 +44,12 @@ navDropdowns.forEach((dropdown) => {
     return;
   }
 
-  trigger.addEventListener('click', () => {
+  trigger.addEventListener('click', (event) => {
     if (window.innerWidth > 1080) {
       return;
     }
 
+    event.preventDefault();
     const open = dropdown.classList.toggle('nav-dropdown-open');
     trigger.setAttribute('aria-expanded', String(open));
   });
