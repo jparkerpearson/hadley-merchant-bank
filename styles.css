@@ -1186,6 +1186,10 @@ section {
     linear-gradient(180deg, #faf7f1 0%, #fdfcf9 30%, #fdfcf9 100%);
 }
 
+.marketplace-shell section {
+  padding-top: 20px;
+}
+
 .marketplace-summary,
 .marketplace-table-shell,
 .marketplace-cta {
