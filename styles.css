@@ -161,6 +161,11 @@ img {
   border-bottom-color: rgba(31, 47, 70, 0.3);
 }
 
+.nav-dropdown.is-current .nav-dropdown-trigger {
+  color: var(--navy);
+  border-bottom-color: rgba(31, 47, 70, 0.3);
+}
+
 .nav-dropdown:hover .nav-dropdown-trigger::after,
 .nav-dropdown:focus-within .nav-dropdown-trigger::after {
   transform: rotate(225deg) translateY(-1px);
@@ -1325,13 +1330,14 @@ section {
   width: 100%;
   border-collapse: collapse;
   min-width: 1080px;
+  font-size: 0.9rem;
 }
 
 .marketplace-table thead th {
-  padding: 18px 24px;
+  padding: 15px 20px;
   text-align: left;
   color: rgba(31, 47, 70, 0.64);
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   font-weight: 600;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -1348,7 +1354,7 @@ section {
 }
 
 .marketplace-table tbody td {
-  padding: 22px 24px;
+  padding: 16px 20px;
   border-bottom: 1px solid rgba(31, 47, 70, 0.08);
   vertical-align: top;
 }
@@ -1357,57 +1363,57 @@ section {
   border-bottom: 0;
 }
 
-.marketplace-table-name {
-  min-width: 240px;
+.marketplace-table-location {
+  min-width: 190px;
 }
 
-.marketplace-table-name strong {
+.marketplace-table-location strong {
   display: block;
   color: var(--navy);
-  font-size: 1.04rem;
+  font-size: 0.94rem;
   font-weight: 600;
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 }
 
-.marketplace-table-name span,
+.marketplace-table-location span,
 .marketplace-table-copy,
 .marketplace-table-note {
   color: var(--warm-gray);
+  font-size: 0.84rem;
 }
 
 .marketplace-table-type {
   display: inline-flex;
   align-items: center;
-  padding: 7px 10px;
+  padding: 6px 9px;
   border-radius: 999px;
   background: rgba(165, 136, 87, 0.12);
   color: #7d6235;
-  font-size: 0.78rem;
+  font-size: 0.72rem;
   font-weight: 600;
 }
 
 .marketplace-table-metric strong {
   display: block;
   color: var(--navy);
-  font-size: 1rem;
+  font-size: 0.92rem;
   font-weight: 600;
-  margin-bottom: 4px;
+  margin-bottom: 3px;
 }
 
 .marketplace-table-metric span {
   color: var(--warm-gray);
-  font-size: 0.84rem;
+  font-size: 0.78rem;
 }
 
 .marketplace-table-copy {
-  min-width: 320px;
-  max-width: 420px;
+  min-width: 280px;
+  max-width: 380px;
 }
 
 .marketplace-table-note {
-  min-width: 220px;
-  max-width: 280px;
-  font-size: 0.9rem;
+  min-width: 200px;
+  max-width: 240px;
 }
 
 .marketplace-table-actions {
