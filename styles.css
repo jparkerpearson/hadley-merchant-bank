@@ -687,6 +687,7 @@ section {
   max-width: 760px;
 }
 
+
 .content-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
