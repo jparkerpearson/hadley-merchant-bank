@@ -687,6 +687,29 @@ section {
   max-width: 760px;
 }
 
+.franchise-logo-strip {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+  align-items: center;
+}
+
+.franchise-logo-wordmark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 84px;
+  padding: 18px 20px;
+  border: 1px solid rgba(31, 47, 70, 0.14);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.72);
+  color: rgba(31, 47, 70, 0.72);
+  font-family: "Playfair Display", "Libre Baskerville", serif;
+  font-size: 1.2rem;
+  letter-spacing: 0.01em;
+  text-align: center;
+}
+
 
 .content-grid {
   display: grid;
@@ -1648,6 +1671,7 @@ section {
   }
 
   .card-grid,
+  .franchise-logo-strip,
   .split-feature,
   .tile-grid,
   .content-grid,
@@ -1703,13 +1727,45 @@ section {
     display: none;
   }
 
-  .footer-inner,
-  .footer-meta {
+  .footer-inner {
     grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 36px 0 24px;
+  }
+
+  .footer-brand {
+    max-width: none;
+  }
+
+  .footer-meta {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 0;
+  }
+
+  .footer-block {
+    min-width: 0;
+    gap: 6px;
+    padding: 16px 0;
+    border-top: 1px solid rgba(31, 47, 70, 0.1);
+  }
+
+  .footer-block:first-child {
+    padding-top: 0;
+    border-top: 0;
   }
 
   .footer-links {
-    gap: 10px;
+    gap: 6px;
+  }
+
+  .footer-bottom {
+    padding: 14px 0 22px;
+  }
+
+  .footer-bottom p {
+    font-size: 0.8rem;
   }
 
   .legal-shell {
