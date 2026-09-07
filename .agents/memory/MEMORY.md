@@ -1,0 +1,1 @@
+- [Git sync history strategy](git-sync-history.md) — keep unpublished changes linear on origin/main because Replit Git sync rebases local commits.
