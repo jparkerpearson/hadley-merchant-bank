@@ -1,1 +1,2 @@
 - [Git sync history strategy](git-sync-history.md) — keep unpublished changes linear on origin/main because Replit Git sync rebases local commits.
+- [Website positioning](website-positioning.md) — super simple one-pager: thoughtful advisory for small business owners, loosely inspired by 48 North.
