@@ -61,6 +61,7 @@ a:focus-visible { outline: 2px solid var(--primary); outline-offset: 5px; }
   font-weight: 500;
   letter-spacing: -0.045em;
 }
+.brand-logo { display: block; width: 290px; max-width: 100%; height: auto; mix-blend-mode: multiply; }
 .wordmark-name { font-size: 25px; line-height: 1; }
 .wordmark-partners {
   color: var(--primary);
@@ -320,6 +321,7 @@ a:focus-visible { outline: 2px solid var(--primary); outline-offset: 5px; }
   html { scroll-padding-top: 22px; }
   .topbar-inner { width: calc(100% - 40px); min-height: 74px; }
   .wordmark-name { font-size: 22px; }
+  .brand-logo { width: 210px; }
   .main-nav { gap: 17px; }
   .main-nav a { font-size: 10px; }
   .main-nav a[href="#perspective"] { display: none; }
@@ -365,6 +367,7 @@ a:focus-visible { outline: 2px solid var(--primary); outline-offset: 5px; }
   .footer > span { order: 3; flex-basis: 100%; }
 }
 @media (max-width: 370px) {
+  .brand-logo { width: 180px; }
   .main-nav { gap: 11px; }
   .main-nav a { font-size: 9px; }
   .main-nav .nav-contact { padding: 7px 8px; }
