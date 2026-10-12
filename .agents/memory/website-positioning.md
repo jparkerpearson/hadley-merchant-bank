@@ -12,3 +12,9 @@ The supplied Hadley brand style guide is now the authority for colors and typogr
 **Why:** The user requested a change from the earlier buyer-focused strategic-advisory website to this owner-focused positioning.
 
 **How to apply:** Keep future homepage copy brief and owner-focused; do not restore brokerage-marketplace or buyer-only positioning unless the user requests it.
+
+Always force visitors to the top when they reload the website.
+
+**Why:** The user explicitly requested this as the standing reload behavior.
+
+**How to apply:** Preserve this behavior when changing navigation or scripts; reloads must not retain a previous scroll position or section anchor.
