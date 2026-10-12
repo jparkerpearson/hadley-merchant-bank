@@ -174,7 +174,7 @@ a:focus-visible { outline: 2px solid var(--primary); outline-offset: 5px; }
 .founders-caption {
   position: relative;
   z-index: 2;
-  margin: 20px 0 0;
+  margin: 20px 0 0 24px;
   color: var(--muted);
   font-size: 12px;
   line-height: 1.5;
