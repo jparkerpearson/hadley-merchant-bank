@@ -22,7 +22,7 @@ body {
   min-width: 320px;
   margin: 0;
   color: var(--charcoal);
-  background: var(--ivory);
+  background: #FFFFFF;
   font-family: var(--font);
   font-size: 15px;
   font-weight: 400;
@@ -86,7 +86,7 @@ a:focus-visible { outline: 2px solid var(--primary); outline-offset: 5px; }
 .nav-contact span { margin-left: 11px; color: var(--primary); }
 .main-nav .nav-contact:hover { color: var(--ivory); background: var(--navy); }
 
-.hero { overflow: hidden; background: var(--ivory); }
+.hero { overflow: hidden; background: #FFFFFF; }
 .hero-inner {
   position: relative;
   display: grid;
@@ -238,8 +238,10 @@ a:focus-visible { outline: 2px solid var(--primary); outline-offset: 5px; }
 
 .owner-options {
   padding: 76px 0 80px;
-  background: var(--midnight);
-  color: var(--ivory);
+  background: var(--ivory);
+  color: var(--navy);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 .owner-options h2 {
   max-width: 900px;
@@ -250,10 +252,10 @@ a:focus-visible { outline: 2px solid var(--primary); outline-offset: 5px; }
   letter-spacing: -0.035em;
   text-align: center;
 }
-.owner-options h2 span, .options-grid h3 span { color: var(--sky); }
+.owner-options h2 span, .options-grid h3 span { color: var(--primary); }
 .options-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 38px; }
 .options-grid h3 { margin: 0 0 14px; font-size: 18px; font-weight: 500; line-height: 1.35; }
-.options-grid p { margin: 0; color: var(--powder); font-size: 14px; line-height: 1.75; }
+.options-grid p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.75; }
 @media (max-width: 900px) {
   .options-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px; }
 }
@@ -265,15 +267,15 @@ a:focus-visible { outline: 2px solid var(--primary); outline-offset: 5px; }
 
 .contact {
   padding: 74px 0 80px;
-  color: var(--ivory);
-  background: var(--navy);
+  color: var(--navy);
+  background: #FFFFFF;
 }
 .contact-inner { display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: center; }
 .contact .section-label { align-self: start; color: var(--sky); }
 .contact h2 {
   max-width: 460px;
   margin: 0;
-  color: var(--ivory);
+  color: var(--navy);
   font-size: clamp(2.7rem, 4.5vw, 4rem);
   line-height: 1.05;
 }
@@ -291,15 +293,15 @@ a:focus-visible { outline: 2px solid var(--primary); outline-offset: 5px; }
   justify-content: space-between;
   gap: 15px;
   padding: 12px 0;
-  border-top: 1px solid rgba(250, 251, 253, 0.35);
-  border-bottom: 1px solid rgba(250, 251, 253, 0.35);
-  color: var(--ivory);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  color: var(--primary);
   font-size: 12px;
   font-weight: 500;
   transition: color 180ms ease;
 }
-.contact-link:hover { color: var(--sky); }
-.contact-arrow { color: var(--sky); }
+.contact-link:hover { color: var(--navy); }
+.contact-arrow { color: var(--primary); }
 
 .footer {
   display: flex;

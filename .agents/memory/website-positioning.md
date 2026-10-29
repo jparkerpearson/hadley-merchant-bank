@@ -9,6 +9,10 @@ The user also supplied Normandy Advisors as a reference, emphasizing the vibe an
 
 The supplied Hadley brand style guide is now the authority for colors and typography; reference sites remain layout/vibe inspiration only. The user wants the supplied formal team photo instead of stock photography.
 
+Use a white/light overall color balance rather than dark sections, retaining Hadley's blues for text and accents.
+
+**Why:** The user requested white balance instead of dark coloring.
+
 **Why:** The user requested a change from the earlier buyer-focused strategic-advisory website to this owner-focused positioning.
 
 **How to apply:** Keep future homepage copy brief and owner-focused; do not restore brokerage-marketplace or buyer-only positioning unless the user requests it.
