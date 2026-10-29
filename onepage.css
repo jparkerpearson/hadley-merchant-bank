@@ -253,11 +253,11 @@ a:focus-visible { outline: 2px solid var(--primary); outline-offset: 5px; }
   text-align: center;
 }
 .owner-options h2 span, .options-grid h3 span { color: var(--primary); }
-.options-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 38px; }
+.options-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 38px; }
 .options-grid h3 { margin: 0 0 14px; font-size: 18px; font-weight: 500; line-height: 1.35; }
 .options-grid p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.75; }
 @media (max-width: 900px) {
-  .options-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 36px; }
+  .options-grid { gap: 28px; }
 }
 @media (max-width: 650px) {
   .owner-options { padding: 56px 0; }
